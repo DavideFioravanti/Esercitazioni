@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">San Martino</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_esercitazione00">San Martino</string>
+    <string name="Poesia">La nebbia a gl\'irti colli\nPiovigginando sale,\nE sotto il maestrale\nUrla e biancheggia il mar;\nMa per le vie del borgo\nDal ribollir de\' tini\nVa l\'aspro odor de i vini\nL\'anime a rallegrar.\nGira su\' ceppi accesi\nLo spiedo scoppiettando:\nSta il cacciator fischiando\nSu l\'uscio a rimirar\nTra le rossastre nubi\nStormi d\'uccelli neri,\nCom\'esuli pensieri,\nNel vespero migrar.</string>
+
+</resources>
