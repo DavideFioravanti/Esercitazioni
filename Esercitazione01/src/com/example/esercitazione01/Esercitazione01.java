@@ -106,12 +106,13 @@ public class Esercitazione01 extends Activity {
 		       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		           Intent intent = new Intent(Esercitazione01.this, Dettaglio.class);
 		           //In base a quale notizia è stata cliccata, mando il titolo del blog,
-		           //il titolo della notizia, la data e la descrizione
+		           //il titolo della notizia, la data, la descrizione e il link
 		           //tramite il metodo putExtra() alla nuova activity.
 		           intent.putExtra("nomeBlog", handler.nomeBlog);
 		           intent.putExtra("titolo", handler.vTitolo.elementAt(position));
 		           intent.putExtra("data", handler.vPubDate.elementAt(position));
 		           intent.putExtra("descrizione", handler.vDescription.elementAt(position));
+		           intent.putExtra("link", handler.vLink.elementAt(position));
 		           startActivity(intent);
 		    	   
 		           //Toast.makeText(Esercitazione01.this,"Cliccato: "+position, Toast.LENGTH_SHORT).show();

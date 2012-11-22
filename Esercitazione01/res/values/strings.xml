@@ -4,5 +4,6 @@
     <string name="app_name">Esercitazione01</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="continua">Continua a leggere l\'articolo...</string>
 
 </resources>

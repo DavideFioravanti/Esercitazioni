@@ -32,17 +32,19 @@ public class RssHandler extends DefaultHandler  {
 	//Bisogna creare tante variabili booleane quanti sono i valori che ci servono
 	boolean inTitle=false;
 	boolean inItem = false;
-	boolean inEnclosure = false;
+	boolean inLink = false;
 	boolean inPubDate=false;
 	boolean inDescription=false;
 	String pubDate=null;
 	String nomeBlog=null;
 	
 	
-	//Creo 3 vettori per salvare rispettivamente i titoli delle notizie, la data e la descrizione
+	//Creo 3 vettori per salvare rispettivamente i titoli delle notizie, la data,
+	//la descrizione e il link all'articolo completo
 	Vector<String> vTitolo= new Vector<String>();
 	Vector<String> vPubDate= new Vector<String>();
 	Vector<String> vDescription= new Vector<String>();
+	Vector<String> vLink= new Vector<String>();	
 
 	
 
@@ -93,6 +95,13 @@ public class RssHandler extends DefaultHandler  {
 			inDescription=true;
 			//Come nel caso precedente inserisco una riga vuota nel vettore delle descrizioni
 			vDescription.add("");
+		}else if (qName.equalsIgnoreCase("link") & inItem){
+			//Se questo elemento è un link e si trova nel tag "item"
+			//vuol dire che si tratta del link di una notizia
+			//altrimenti sarebbe il link del blog
+			inLink=true;
+			//Come nel caso precedente inserisco una riga vuota nel vettore delle descrizioni
+			vLink.add("");
 		}
 		
 
@@ -109,14 +118,14 @@ public class RssHandler extends DefaultHandler  {
 			inTitle=false;
 		}else if(qName.equalsIgnoreCase("title") & !inItem){
 			inTitle=false;
-		}else if (qName.equalsIgnoreCase("enclosure")){
-			inEnclosure=false;
 		}else if (qName.equalsIgnoreCase("pubdate")){
 			inPubDate=false;
 		}else if (qName.equalsIgnoreCase("item")){
 			inItem=false;
 		}else if (qName.equalsIgnoreCase("description") & inItem){
 			inDescription=false;
+		}else if (qName.equalsIgnoreCase("link") & inItem){
+			inLink=false;
 		}
 	}
 	
@@ -141,6 +150,8 @@ public class RssHandler extends DefaultHandler  {
 		}
 		else if (inDescription & inItem){
 			vDescription.set(vDescription.size()-1,vDescription.lastElement()+s);
+		}else if (inLink & inItem){
+			vLink.set(vLink.size()-1,vLink.lastElement()+s);
 		}
 		//Il titolo e la data non sembrano essere interessati da questo problema.
 		else if (inTitle & !inItem){
