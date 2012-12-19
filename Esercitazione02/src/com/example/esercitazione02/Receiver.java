@@ -9,7 +9,8 @@ public class Receiver extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//setContentView(new MyViewReceiver(this));
-		setContentView(new MyViewGlobal(this,false));
+		Boolean enableReceiverWrite= this.getIntent().getBooleanExtra("enableReceiverWrite",true);
+		setContentView(new MyViewGlobal(this,false,enableReceiverWrite));
 		
 		
 		
