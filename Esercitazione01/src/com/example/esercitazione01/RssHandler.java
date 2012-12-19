@@ -70,7 +70,7 @@ public class RssHandler extends DefaultHandler  {
 			Attributes attributes) throws SAXException {
 		// TODO Auto-generated method stub
 		super.startElement(uri, localName, qName, attributes);
-		//System.out.println("Inizio Elemento:"+qName);
+		System.out.println("Inizio Elemento:"+qName);
 		
 
 		if(qName.equalsIgnoreCase("title") & inItem){
